@@ -1,0 +1,13 @@
+<IfModule mod_url.c>
+    checkURL On
+    ServerEncoding EUC-KR
+    ClientEncoding UTF-8
+</IfModule>
+php_flag register_globals on
+php_flag register_long_arrays on
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
+ErrorDocument 404 /index.php
